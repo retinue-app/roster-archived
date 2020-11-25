@@ -1,0 +1,11 @@
+{
+  "version": "0.1",
+  "language": "en",
+  "ignorePaths": [
+    "package-lock.json",
+    "package.json",
+    ".vscode/**",
+    "node_modules/**",
+    "tool/**"
+  ]
+}

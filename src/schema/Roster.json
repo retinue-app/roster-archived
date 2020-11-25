@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.retinue.app/roster/Roster.json",
+  "title": "Roster",
+
+  "description": "An army list.",
+  "$comment": "https://images-cdn.fantasyflightgames.com/filer_public/bc/fe/bcfe31e1-c5f9-48e0-9245-1f0f3c9c93ee/swl_army_list.pdf",
+  "additionalProperties": false,
+
+  "properties": {
+    "faction": {
+      "$ref": "../../node_modules/@retinue/databank/schema/Faction.json"
+    },
+
+    "format": {
+      "anyOf": [
+        {
+          "enum": ["Standard"]
+        }
+      ]
+    }
+  },
+
+  "required": ["faction"]
+}
