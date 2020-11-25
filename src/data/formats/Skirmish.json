@@ -1,0 +1,12 @@
+{
+  "name": "Skirmish",
+  "points": 500,
+  "ranks": {
+    "Commander": [1, 1],
+    "Operative": [0, 1],
+    "Corps": [2, 4],
+    "Special Forces": [0, 2],
+    "Support": [0, 2],
+    "Heavy": [0, 1]
+  }
+}

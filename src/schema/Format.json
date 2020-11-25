@@ -6,6 +6,12 @@
   "description": "An army list (game) format.",
   "additionalProperties": false,
 
+  "definitions": {
+    "Official": {
+      "enum": ["Skirmish", "Standard"]
+    }
+  },
+
   "properties": {
     "name": {
       "type": "string",

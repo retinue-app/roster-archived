@@ -5,7 +5,9 @@
     "package-lock.json",
     "package.json",
     ".vscode/**",
+    "sample/**",
     "node_modules/**",
     "tool/**"
-  ]
+  ],
+  "words": ["loadout"]
 }
