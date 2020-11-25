@@ -25,6 +25,11 @@
     {
       "fileMatch": ["/sample/*.json"],
       "url": "/src/schema/Roster.json"
+    },
+
+    {
+      "fileMatch": ["/src/data/formats/*.json"],
+      "url": "/src/schema/Format.json"
     }
   ],
   // Linting.

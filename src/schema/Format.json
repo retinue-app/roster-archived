@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://schema.retinue.app/roster/Format.json",
+  "title": "Format",
+
+  "description": "An army list (game) format.",
+  "additionalProperties": false,
+
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+
+    "points": {
+      "type": "number",
+      "minimum": 0
+    },
+
+    "ranks": {
+      "propertyNames": {
+        "$ref": "../../node_modules/@retinue/databank/schema/UnitRank.json"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2,
+        "tsType": "[number, number]"
+      }
+    }
+  },
+
+  "required": ["name", "points", "ranks"]
+}
