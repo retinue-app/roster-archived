@@ -15,6 +15,9 @@
     // Require checked-in TypeScript code to pass a higher bar/be consistent.
     "strict": true,
 
+    // Used in tests.
+    "resolveJsonModule": true,
+
     // Support super() call.
     "target": "ES6",
     "module": "CommonJS"
