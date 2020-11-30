@@ -2,7 +2,6 @@
   "name": "@retinue/roster",
   "version": "0.0.0",
   "scripts": {
-    "build:types": "json2ts --unknownAny --enableConstEnums --cwd src/schema -i src/schema/*.json -o src/types && prettier --ignore-path .gitignore --write src/types",
     "lint": "npm run lint:format && npm run lint:eslint",
     "lint:eslint": "eslint src",
     "lint:format": "prettier --ignore-path .gitignore --list-different src",
