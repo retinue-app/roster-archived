@@ -2,6 +2,7 @@
   "compilerOptions": {
     // Emits d.ts definition files along with compiled JS.
     "declaration": true,
+    "stripInternal": true,
 
     // Enables interop between CommonJS and ES Modules.
     //
