@@ -1,13 +1,19 @@
 {
-  "version": "0.1",
-  "language": "en",
-  "ignorePaths": [
-    "package-lock.json",
-    "package.json",
-    ".vscode/**",
-    "sample/**",
-    "node_modules/**",
-    "tool/**"
-  ],
-  "words": ["Electrobinoculars", "loadout", "Skywalker"]
+    "version": "0.1",
+    "language": "en",
+    "ignorePaths": [
+        "package-lock.json",
+        "package.json",
+        ".vscode/**",
+        "sample/**",
+        "node_modules/**",
+        "tool/**"
+    ],
+    "words": [
+        "Electrobinoculars",
+        "loadout",
+        "Sith",
+        "Skywalker",
+        "Stormtrooper"
+    ]
 }

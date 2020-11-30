@@ -1,4 +1,4 @@
-import { Catalog, Faction } from '@retinue/databank';
+import { Catalog, Faction, UnitCard, UpgradeCard } from '@retinue/databank';
 
 /**
  * A recorded "raw" unit.
@@ -54,22 +54,43 @@ export interface RosterRecord {
   readonly units: UnitRecord[];
 }
 
-export class Unit {}
+export class Unit {
+  constructor(
+    public readonly card: UnitCard,
+    public readonly upgrades: UpgradeCard[],
+    public readonly loadout?: UpgradeCard[],
+  ) {}
+}
 
 export class Roster {
   static resolve(record: RosterRecord, catalog: Catalog): Roster {
     const units: Unit[] = [];
-
     for (const rUnit of record.units) {
       const cUnit = catalog.lookupUnit(rUnit.name, {
         title: rUnit.title,
         faction: record.faction,
       });
       if (cUnit) {
-        units.push(new Unit());
+        const cUpgrades = rUnit.upgrades?.map((u) => catalog.lookupUpgrade(u));
+        const cLoadout = rUnit.loadout?.map((u) => catalog.lookupUpgrade(u));
+        units.push(
+          new Unit(
+            cUnit,
+            (cUpgrades?.filter((u) => u) as UpgradeCard[] | undefined) || [],
+            (cLoadout?.filter((u) => u) as UpgradeCard[] | undefined) || [],
+          ),
+        );
       }
     }
+    return new Roster(
+      units,
+      units.reduce(
+        (a, c) =>
+          a + c.card.points + c.upgrades.reduce((a, c) => a + c.points, 0),
+        0,
+      ),
+    );
   }
 
-  constructor(public readonly units: Unit[]) {}
+  constructor(public readonly units: Unit[], public readonly points: number) {}
 }

@@ -1,1 +1,1 @@
-export { Roster } from './lib/roster';
+export { Roster, RosterRecord, Unit, UnitRecord } from './lib/roster';
