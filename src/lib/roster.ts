@@ -54,15 +54,27 @@ export interface RosterRecord {
   readonly units: UnitRecord[];
 }
 
+/**
+ * Represents a resolved @see UnitRecord (a unit card and upgrades).
+ */
 export class Unit {
   constructor(
-    public readonly card: UnitCard,
-    public readonly upgrades: UpgradeCard[],
-    public readonly loadout?: UpgradeCard[],
+    readonly card: UnitCard,
+    readonly upgrades: UpgradeCard[],
+    readonly loadout?: UpgradeCard[],
   ) {}
 }
 
+/**
+ * Represents a resolved @see RosterRecord.
+ */
 export class Roster {
+  /**
+   * Creates a roster by resolving a record in context of a catalog.
+   *
+   * @param record
+   * @param catalog
+   */
   static resolve(record: RosterRecord, catalog: Catalog): Roster {
     const units: Unit[] = [];
     for (const rUnit of record.units) {
@@ -92,5 +104,5 @@ export class Roster {
     );
   }
 
-  constructor(public readonly units: Unit[], public readonly points: number) {}
+  constructor(readonly units: Unit[], readonly points: number) {}
 }
