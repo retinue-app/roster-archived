@@ -11,6 +11,7 @@ const catalog = (() => {
 
 test('should resolve a roster', () => {
   const record: RosterRecord = {
+    name: 'Roster',
     faction: 'Galactic Empire',
     units: [
       {
@@ -30,5 +31,6 @@ test('should resolve a roster', () => {
   expect(roster.units[1].upgrades[0].name).toEqual('DLT-19 Stormtrooper');
 
   // Original points without errata or adjustments.
+  expect(roster.name).toEqual('Roster');
   expect(roster.points).toEqual(264);
 });
