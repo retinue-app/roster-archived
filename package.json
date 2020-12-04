@@ -1,0 +1,39 @@
+{
+  "name": "@retinue/roster",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc --build tsconfig.dist.json && ts-node ./tool/build/prepare-deploy.ts",
+    "lint": "npm run lint:format && npm run lint:eslint",
+    "lint:eslint": "eslint src",
+    "lint:format": "prettier --ignore-path .gitignore --list-different src",
+    "test": "jest"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.4",
+    "@types/glob": "^7.1.3",
+    "@types/jest": "^26.0.16",
+    "@types/minimist": "^1.2.1",
+    "@types/prettier": "^2.1.5",
+    "@types/shelljs": "^0.8.8",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "cspell": "^4.2.5",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.2.0",
+    "glob": "^7.1.6",
+    "jest": "^26.6.3",
+    "minimist": "^1.2.5",
+    "prettier": "^2.2.1",
+    "shelljs": "^0.8.4",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.0",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@retinue/databank": "github:retinue-app/databank#gh-pages"
+  }
+}
