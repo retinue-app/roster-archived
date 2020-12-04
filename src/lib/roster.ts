@@ -40,6 +40,11 @@ export interface UnitRecord {
  */
 export interface RosterRecord {
   /**
+   * Name of the roster.
+   */
+  readonly name: string;
+
+  /**
    * Optional; which faction was selected when building this roster.
    *
    * Omitting this field indicates that this roster should be treated as a
@@ -63,6 +68,15 @@ export class Unit {
     readonly upgrades: UpgradeCard[],
     readonly loadout?: UpgradeCard[],
   ) {}
+
+  toRecord(): UnitRecord {
+    return {
+      name: this.card.name,
+      title: this.card.title,
+      upgrades: this.upgrades.map((u) => u.name),
+      loadout: this.loadout?.map((u) => u.name),
+    };
+  }
 }
 
 /**
@@ -95,6 +109,8 @@ export class Roster {
       }
     }
     return new Roster(
+      record.name,
+      record.faction,
       units,
       units.reduce(
         (a, c) =>
@@ -104,5 +120,18 @@ export class Roster {
     );
   }
 
-  constructor(readonly units: Unit[], readonly points: number) {}
+  constructor(
+    readonly name: string,
+    readonly faction: Faction | undefined,
+    readonly units: Unit[],
+    readonly points: number,
+  ) {}
+
+  toRecord(): RosterRecord {
+    return {
+      name: this.name,
+      faction: this.faction,
+      units: this.units.map((u) => u.toRecord()),
+    };
+  }
 }
